@@ -13,6 +13,6 @@
   },
   "icons": { "16": "art/png/idle-16.png", "48": "art/png/idle-48.png", "128": "art/png/idle-128.png" },
   "web_accessible_resources": [
-    { "resources": ["art/png/chew1-128.png", "art/png/chew2-128.png"], "matches": ["<all_urls>"] }
+    { "resources": ["art/png/chew1-96.png", "art/png/chew2-96.png"], "matches": ["<all_urls>"] }
   ]
 }

@@ -44,7 +44,7 @@ async function showOnPage(prey) {
   const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
   if (!tab) return;
   const text = prey.length > 1 ? `탭 ${prey.length}개 냠냠했어요` : `${cut(prey[0].title)} 탭 맛있게 먹었어요`;
-  const frames = ['chew1', 'chew2'].map(f => chrome.runtime.getURL(`art/png/${f}-128.png`));
+  const frames = ['chew1', 'chew2'].map(f => chrome.runtime.getURL(`art/png/${f}-96.png`));
   chrome.scripting.executeScript({ target: { tabId: tab.id }, func: pigPopup, args: [text, frames] })
     .catch(() => {}); // chrome:// 같은 페이지는 주입 불가 → 아이콘 연출만
 }
@@ -56,9 +56,9 @@ function pigPopup(text, frames) {
   const root = host.attachShadow({ mode: 'closed' });
   root.innerHTML = `<style>
     div{display:flex;align-items:flex-start;gap:4px;font:14px/1.4 system-ui,sans-serif}
-    p{margin:24px 0 0;padding:8px 12px;background:#fff;color:#3A2830;border:2px solid #B5546E;border-radius:12px;max-width:220px}
+    p{margin:16px 0 0;padding:8px 12px;background:#fff;color:#3A2830;border:2px solid #B5546E;border-radius:12px;max-width:220px}
     img{image-rendering:pixelated}
-  </style><div><p></p><img width="128" height="128" alt=""></div>`;
+  </style><div><p></p><img width="96" height="96" alt=""></div>`;
   root.querySelector('p').textContent = text; // 탭 제목은 신뢰할 수 없는 값 → textContent
   const img = root.querySelector('img');
   img.src = frames[0];

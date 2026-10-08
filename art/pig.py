@@ -60,7 +60,7 @@ if __name__ == "__main__":
     out = Path(__file__).parent / "png"
     out.mkdir(exist_ok=True)
     for name, rows in FRAMES.items():
-        for size in (16, 32, 48, 128):
+        for size in (16, 32, 48, 96, 128):
             (out / f"{name}-{size}.png").write_bytes(png(rows, size // 16))
     # 미리보기: 세 프레임 나란히 (x10)
     sheet = [FRAMES["idle"][i] + "." + FRAMES["chew1"][i] + "." + FRAMES["chew2"][i] for i in range(16)]
