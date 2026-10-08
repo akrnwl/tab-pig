@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "탭 먹는 돼지",
+  "version": "0.1.0",
+  "description": "오래 안 본 탭을 돼지가 먹어 치워요. 돼지를 누르면 먹은 탭을 되살릴 수 있어요.",
+  "minimum_chrome_version": "121",
+  "permissions": ["tabs", "storage", "alarms", "scripting"],
+  "optional_host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": { "16": "art/png/idle-16.png", "32": "art/png/idle-32.png" }
+  },
+  "icons": { "16": "art/png/idle-16.png", "48": "art/png/idle-48.png", "128": "art/png/idle-128.png" },
+  "web_accessible_resources": [
+    { "resources": ["art/png/chew1-128.png", "art/png/chew2-128.png"], "matches": ["<all_urls>"] }
+  ]
+}

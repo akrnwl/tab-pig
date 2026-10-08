@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<style>
+  :root { --pig: #F7A8BE; --line: #B5546E; --ink: #3A2830; --paper: #FFF7F9; }
+  body { margin: 0; width: 300px; font: 13px/1.5 system-ui, sans-serif; color: var(--ink); background: var(--paper); }
+  header { display: flex; gap: 10px; align-items: center; padding: 12px 14px; border-bottom: 2px solid var(--pig); }
+  header img { image-rendering: pixelated; }
+  h1 { font-size: 15px; margin: 0; }
+  header p { margin: 0; color: var(--line); }
+  ul { list-style: none; margin: 0; padding: 6px; max-height: 260px; overflow-y: auto; }
+  li button { display: block; width: 100%; text-align: left; padding: 6px 8px; border: 0; border-radius: 6px;
+    background: none; color: inherit; font: inherit; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer; }
+  li button:hover, li button:focus-visible { background: var(--pig); outline: none; }
+  #empty { margin: 0; padding: 16px 14px; color: var(--line); }
+  form { display: grid; gap: 8px; padding: 12px 14px; border-top: 2px solid var(--pig); }
+  input[type=number] { width: 56px; font: inherit; }
+  input { accent-color: var(--line); }
+</style>
+<header>
+  <img src="art/png/idle-48.png" width="48" height="48" alt="">
+  <div><h1>탭 먹는 돼지</h1><p id="count"></p></div>
+</header>
+<ul id="list"></ul>
+<p id="empty" hidden>아직 먹은 탭이 없어요. 오래 안 본 탭이 생기면 먹을게요.</p>
+<form>
+  <label>안 본 지 <input id="minutes" type="number" min="5" max="1440" step="5"> 분 지나면 먹기</label>
+  <label><input id="starve" type="checkbox"> 굶기기 (잠시 멈춤)</label>
+  <label><input id="effect" type="checkbox"> 먹을 때 페이지에 돼지 띄우기</label>
+</form>
+<script type="module" src="popup.js"></script>
+</html>
